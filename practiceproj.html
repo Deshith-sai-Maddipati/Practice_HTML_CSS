@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Practice Project</title>
+        <link rel="stylesheet" href="Stylesheets.css">
+    </head>
+    <body>
+        
+        <header class="site-header">
+            <div class="logo">WanderWorld</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            <section class="hero">
+                <h1>Discover the World</h1>
+                <p>Explore breathtaking destinations and create unforgettable memories.</p>
+            </section>
+
+            <section class="Destinations">
+                <h2>Featured Destinations</h2>
+                <div class="cards">
+                    <!-- Paris -->
+
+                    <article class="card">
+                        <picture>
+                            <source srcset="images/paris-mobile.jpg" media="(max-width: 600px)">
+                            <source srcset="images/paris-desktop.jpg" media="(min-width: 601px)">
+                            <img src="paris-desktop.jpg" alt="Paris",loading="lazy">
+                        </picture>
+                        <h3>Paris</h3>
+                        <p>The City of Lights,Romance and timeless Art</p>
+                        <a href="#paris" class="btn">Learn More</a>
+                        <div id="paris" class="paris-section">
+                            Also known as the City of Light, Paris is one of 
+                            the most fascinating European capitals, not just 
+                            because of its art, culture, architecture, 
+                            history, or even Emily in Paris.Though it may be 
+                            synonymous with romance, Paris has many quirky 
+                            secrets that only add to its appeal.
+                          </div>
+                    </article>
+
+                    <!-- Tokyo -->
+                    <article class="card">
+                        <picture>
+                            <source srcset="images/tokyo-mobile.jpg" media="(max-width: 600px)">
+                            <source srcset="images/tokyo-desktop.jpg" media="(min-width: 601px)">
+                            <img src="tokyo-desktop.jpg" alt="Tokyo",loading="lazy">
+                        </picture>
+                        <h3>Tokyo</h3>
+                        <p>The City of the Future,Innovation and Culture</p>
+                        <a href="#tokyo" class="btn">Learn More</a>
+                        <div id="tokyo" class="tokyo-section">
+                            Tokyo, Japan's sprawling capital, seamlessly blends cutting-edge technology, neon-lit streets, and 
+                            trendsetting culture with deep historical roots, offering a vibrant mix of experiences from serene 
+                            temples to bustling markets and futuristic entertainment.
+                          </div>
+                    </article>
+
+                    <!-- Bali -->
+                    <article class="card">
+                        <picture>
+                            <source srcset="images/bali-mobile.jpg" media="(max-width: 600px)">
+                            <source srcset="images/bali-desktop.jpg" media="(min-width: 601px)">
+                            <img src="bali-desktop.jpg" alt="Bali",loading="lazy">
+                        </picture>
+                        <h3>Bali</h3>
+                        <p>The Island of the Gods,Tranquility and Beauty</p>
+                        <a href="#bali" class="btn">Learn More</a>
+                        <div id="bali" class="bali-section">
+                            Bali, Indonesia's jewel, is a paradise island known for its stunning beaches, lush landscapes,
+                             and rich cultural heritage, offering a perfect blend of relaxation and adventure.
+                          </div>
+                    </article>
+
+                    
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2026 WanderWorld. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
