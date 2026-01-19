@@ -60,15 +60,14 @@ img{
 }
 
 .cards{
-    display: flex;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 5rem;
     padding: 2rem;
-    flex-wrap: wrap;
     
 }
 
 .card{
-    flex : 1 1 300px;
     background-color: lightblue;
     padding: 1.5rem;
     border-radius: 8px;
@@ -97,4 +96,10 @@ img{
     display: block;
 }
 
+.hyderabad-section{
+    display: none;
+}
 
+.hyderabad-section:target{
+    display: block;
+}
