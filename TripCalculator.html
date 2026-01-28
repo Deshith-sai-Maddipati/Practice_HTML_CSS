@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trip Calculator - WanderWorld</title>
+        <link rel="stylesheet" href="Stylesheets.css">
+        <script src="Script.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="logo">WanderWorld</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Index.html#places">Destinations</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="calculator-main">
+            <h1 class="calculator-title">Trip Calculator</h1>
+            
+            <div class="calculator-container">
+                <form id="tripCalculatorForm">
+                    <div class="calculator-form-group">
+                        <label for="city" class="calculator-label">Place you wish to visit:</label>
+                        <select id="city" name="city" required class="calculator-select">
+                            <option value="">Select a city</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Paris">Paris</option>
+                            <option value="Tokyo">Tokyo</option>
+                            <option value="Bali">Bali</option>
+                        </select>
+                    </div>
+
+                    <div class="calculator-form-group">
+                        <label for="days" class="calculator-label">Number of days:</label>
+                        <input type="number" id="days" name="days" min="1" required class="calculator-input">
+                    </div>
+
+                    <button type="submit" class="btn calculator-btn">Calculate Cost</button>
+                </form>
+
+                <div id="result" class="calculator-result">
+                    <p id="resultMessage" class="calculator-result-message"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 WanderWorld. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
