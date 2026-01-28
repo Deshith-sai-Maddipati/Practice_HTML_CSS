@@ -30,3 +30,4 @@ if (footerTime) {
     // Update every second
     setInterval(updateFooterTime, 1000);
 }
+
