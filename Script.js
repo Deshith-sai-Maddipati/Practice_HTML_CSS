@@ -85,7 +85,48 @@ if (document.readyState === 'loading') {
     createDestinationCards();
 }
 
-// Dynamic Footer Year - Updates every second
+// Hamburger Menu Toggle Functionality
+function initHamburgerMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+        
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll('a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+}
+
+// Initialize hamburger menu
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+} else {
+    initHamburgerMenu();
+}
+
+// Dynamic Footer time
 const footerTime = document.querySelector('.site-footer p');
 if (footerTime) {
     const originalText = footerTime.innerHTML;
@@ -98,8 +139,6 @@ if (footerTime) {
     // Update immediately
     updateFooterTime();
     
-    // Update every second
-    setInterval(updateFooterTime, 1000);
 }
 
 // Trip Calculator Functionality

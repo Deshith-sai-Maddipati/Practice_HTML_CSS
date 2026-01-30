@@ -1,112 +1,158 @@
-body{
+/* CSS Variables */
+:root {
+    --color-primary: #2C5F7C;
+    --color-primary-dark: #1A5F7A;
+    --color-header: #1E3A5F;
+    --color-text: #1C1917;
+    --color-bg: #F8F9FA;
+    --color-white: #FFFFFF;
+    --color-accent: #FFB84D;
+    --color-border: #E5E7EB;
+    --shadow-sm: 0 4px 8px rgba(44, 95, 124, 0.3);
+    --shadow-md: 0 4px 20px rgba(30, 58, 95, 0.12);
+    --shadow-lg: 0 8px 30px rgba(30, 58, 95, 0.18);
+    --shadow-xl: 0 8px 20px rgba(44, 95, 124, 0.4);
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 2.5rem;
+    --spacing-3xl: 3rem;
+    --spacing-4xl: 4rem;
+    --transition: all 0.3s ease;
+    --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #F8F9FA;
+    background-color: var(--color-bg);
     line-height: 1.6;
-    color: #1C1917;
+    color: var(--color-text);
 }
 
-h1,h2,h3{
-    margin-bottom: 0.5rem;
-}
-
-img{
+h1, h2, h3 { margin-bottom: var(--spacing-sm); }
+img {
     width: 100%;
     display: block;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
-.site-header
-{
-    display : flex;
+/* Header & Navigation */
+.site-header {
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: #1E3A5F;
-    color:#FFFFFF;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-header);
+    color: var(--color-white);
 }
 
-.logo{
-    font-size: 1.5rem;
-    font-weight: 900;
+.logo { font-size: 1.5rem; font-weight: 900; }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 32px;
+    z-index: 1001;
+    position: relative;
 }
 
-.nav-links{
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 0.25rem;
+    gap: var(--spacing-xs);
 }
 
-.nav-links a{
-    color : #FFFFFF;
+.nav-links a {
+    color: var(--color-white);
     text-decoration: underline;
-    padding: 0.5rem 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
     border-radius: 5px;
-}
-.nav-links a:hover{
-    color : #FFB84D
+    transition: var(--transition);
 }
 
-.hero{
+.nav-links a:hover { color: var(--color-accent); }
+
+/* Hero Section */
+.hero {
     text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #2C5F7C 0%, #1A5F7A 100%);
-    color: #FFFFFF;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
 }
 
-
+/* Destinations & Cards */
 .Destinations {
     text-align: center;
-    margin-bottom: 2rem;
-    background-color: #FFFFFF;
-    padding: 2rem 0;
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--color-white);
+    padding: var(--spacing-xl) 0;
 }
 
-.cards{
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    padding: 2rem;
-    
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-xl);
 }
 
-.card{
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.12);
-    padding: 1.5rem;
+.card {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
     border-radius: 12px;
-    border: 1px solid #E5E7EB;
+    border: 1px solid var(--color-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(30, 58, 95, 0.18);
-}
-.descriptions{
-    display: none;
-    margin-top: 1 rem;
-    
-}
-.descriptions.show{
-    display:block;
+    box-shadow: var(--shadow-lg);
 }
 
-.btn{
+.descriptions { display: none; margin-top: var(--spacing-md); }
+.descriptions.show { display: block; }
+
+/* Buttons */
+.btn {
     padding: 12px 24px;
-    background-color: #2C5F7C;
-    color: #FFFFFF;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(44, 95, 124, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
     position: relative;
     overflow: hidden;
 }
-.btn::before{
+
+.btn::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -118,33 +164,28 @@ img{
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
-.btn:hover{
-    background-color: #1A5F7A;
+
+.btn:hover {
+    background-color: var(--color-primary-dark);
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(44, 95, 124, 0.4);
-}
-.btn:hover::before{
-    width: 300px;
-    height: 300px;
-}
-.btn:active{
-    transform: translateY(0) scale(0.98);
-    box-shadow: 0 4px 8px rgba(44, 95, 124, 0.3);
-}
-.btn:focus{
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(44, 95, 124, 0.3), 0 8px 20px rgba(44, 95, 124, 0.4);
+    box-shadow: var(--shadow-xl);
 }
 
-.site-footer{
+.btn:hover::before { width: 300px; height: 300px; }
+.btn:active { transform: translateY(0) scale(0.98); box-shadow: var(--shadow-sm); }
+.btn:focus { outline: none; box-shadow: 0 0 0 4px rgba(44, 95, 124, 0.3), var(--shadow-xl); }
+
+/* Footer */
+.site-footer {
     text-align: center;
-    padding: 1.5rem;
-    background-color: #1E3A5F;
-    color: #FFFFFF;
-    margin-top: 2rem;
+    padding: var(--spacing-lg);
+    background-color: var(--color-header);
+    color: var(--color-white);
+    margin-top: var(--spacing-xl);
 }
 
-.gallery-img{
+/* Gallery */
+.gallery-img {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -152,355 +193,230 @@ img{
     border-radius: 8px;
 }
 
-/* Trip Calculator Styles */
-.calculator-main{
+/* Trip Calculator */
+.calculator-main {
     max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-lg);
 }
 
-.calculator-title{
-    color: #1E3A5F;
-    margin-bottom: 2rem;
+.calculator-title {
+    color: var(--color-header);
+    margin-bottom: var(--spacing-xl);
     text-align: center;
 }
 
-.calculator-container{
-    background-color: #FFFFFF;
-    padding: 1.5rem;
+.calculator-container {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.12);
+    box-shadow: var(--shadow-md);
 }
 
-.calculator-form-group{
-    margin-bottom: 1.5rem;
-}
+.calculator-form-group { margin-bottom: var(--spacing-lg); }
 
-.calculator-label{
+.calculator-label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #2C5F7C;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
     font-weight: 600;
 }
 
 .calculator-select,
-.calculator-input{
+.calculator-input {
     width: 100%;
     padding: 12px;
-    border: 2px solid #E5E7EB;
+    border: 2px solid var(--color-border);
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #FFFFFF;
-    color: #1C1917;
+    background-color: var(--color-white);
+    color: var(--color-text);
     box-sizing: border-box;
 }
 
-.calculator-btn{
-    width: 100%;
-}
+.calculator-btn { width: 100%; }
 
-.calculator-result{
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: #F8F9FA;
+.calculator-result {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg);
     border-radius: 8px;
     display: none;
 }
 
-.calculator-result-message{
-    color: #1E3A5F;
+.calculator-result-message {
+    color: var(--color-header);
     font-size: 1.1rem;
     font-weight: 600;
     text-align: center;
     margin: 0;
 }
 
-/* Contact Page Responsive Styles */
-main[style*="max-width: 800px"] {
-    transition: all 0.3s ease;
+/* Calculator Link */
+.calculator-link-container {
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+    padding: var(--spacing-xl);
 }
 
-/* Media Queries for Responsive Design */
-
-/* Tablet and below (max-width: 1024px) */
-@media screen and (max-width: 1024px) {
-    .hero {
-        padding: 3rem 1.5rem;
-    }
-    
-    .cards {
-        gap: 2rem;
-        padding: 1.5rem;
-    }
-    
-    .calculator-main {
-        margin: 1.5rem auto;
-        padding: 1.25rem;
-    }
-    
-    .calculator-container {
-        padding: 1.25rem;
-    }
-    
-    /* Contact page responsive adjustments */
-    
+.calculator-link {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-/* Mobile devices (max-width: 768px) */
-@media screen and (max-width: 768px) {
-    .site-header {
-        padding: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .logo {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-    }
-    
+.calculator-link:hover { color: var(--color-primary-dark); }
+
+/* Gallery Section */
+.gallery-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    background-color: var(--color-white);
+}
+
+.gallery-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Contact Page */
+.contact-main {
+    max-width: 800px;
+    margin: var(--spacing-3xl) auto;
+    padding: var(--spacing-xl);
+}
+
+.contact-title {
+    color: var(--color-header);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-container {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-section-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-social {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Responsive - Tablet (≤1024px) */
+@media (max-width: 1024px) {
+    .hero { padding: var(--spacing-3xl) var(--spacing-lg); }
+    .cards { gap: var(--spacing-xl); padding: var(--spacing-lg); }
+    .calculator-main { margin: var(--spacing-lg) auto; padding: 1.25rem; }
+    .calculator-container { padding: 1.25rem; }
+}
+
+/* Responsive - Mobile (≤768px) */
+@media (max-width: 768px) {
+    .site-header { padding: var(--spacing-md); flex-wrap: nowrap; position: relative; }
+    .logo { font-size: 1.25rem; }
+    .menu-toggle { display: flex; }
+    nav { width: 100%; order: 3; }
     .nav-links {
+        display: none;
         flex-direction: column;
         width: 100%;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+        gap: 0;
+        margin-top: var(--spacing-md);
+        padding: 0;
     }
-    
-    .nav-links li {
-        width: 100%;
-    }
-    
+    .nav-links.active { display: flex; }
+    .nav-links li { width: 100%; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .nav-links li:first-child { border-top: none; }
     .nav-links a {
         display: block;
-        padding: 0.75rem 1rem;
+        padding: var(--spacing-md);
         text-align: left;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
-    .hero {
-        padding: 2.5rem 1rem;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .Destinations {
-        padding: 1.5rem 0;
-        margin-bottom: 1.5rem;
-    }
-    
-    .Destinations h2 {
-        font-size: 1.75rem;
-        padding: 0 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1rem;
-    }
-    
-    .card {
-        padding: 1.25rem;
-    }
-    
-    .card h3 {
-        font-size: 1.25rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .calculator-main {
-        margin: 1.5rem auto;
-        padding: 1rem;
-    }
-    
-    .calculator-title {
-        font-size: 1.75rem;
-        margin-bottom: 1.25rem;
-    }
-    
-    .calculator-container {
-        padding: 1.25rem;
-    }
-    
-    .calculator-label {
-        font-size: 0.95rem;
-    }
-    
+    .nav-links a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--color-accent); }
+    .hero { padding: 2.5rem var(--spacing-md); }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+    .hero p { font-size: 1rem; }
+    .Destinations { padding: var(--spacing-lg) 0; margin-bottom: var(--spacing-lg); }
+    .Destinations h2 { font-size: 1.75rem; padding: 0 var(--spacing-md); margin-bottom: var(--spacing-lg); }
+    .cards { grid-template-columns: 1fr; gap: var(--spacing-lg); padding: var(--spacing-md); }
+    .card { padding: 1.25rem; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .btn { padding: 12px 20px; font-size: 0.9rem; }
+    .calculator-main { margin: var(--spacing-lg) auto; padding: var(--spacing-md); }
+    .calculator-title { font-size: 1.75rem; margin-bottom: 1.25rem; }
+    .calculator-container { padding: 1.25rem; }
+    .calculator-label { font-size: 0.95rem; }
     .calculator-select,
-    .calculator-input {
-        padding: 12px;
-        font-size: 0.95rem;
-    }
-    
-    .calculator-result {
-        padding: 1rem;
-        margin-top: 1.25rem;
-    }
-    
-    .calculator-result-message {
-        font-size: 0.95rem;
-    }
-    
-    .site-footer {
-        padding: 1.25rem 1rem;
-        margin-top: 1.5rem;
-    }
-    
-    .site-footer p {
-        font-size: 0.9rem;
-    }
-    
-    .gallery-img {
-        height: 250px;
-    }
-    
-    /* Contact page mobile adjustments */
-    main[style*="max-width: 800px"] {
-        margin: 1.5rem auto !important;
-        padding: 1rem !important;
-    }
-    
-    main[style*="max-width: 800px"] h1 {
-        margin-bottom: 1.25rem !important;
-        font-size: 1.5rem;
-    }
-    
-    main[style*="max-width: 800px"] > div {
-        padding: 1.25rem !important;
-    }
-    
-    main[style*="max-width: 800px"] h2 {
-        margin-bottom: 0.5rem !important;
-        font-size: 1.1rem;
-    }
-    
-    main[style*="max-width: 800px"] p {
-        margin-bottom: 0.75rem !important;
-        font-size: 0.9rem;
-    }
+    .calculator-input { padding: 12px; font-size: 0.95rem; }
+    .calculator-result { padding: var(--spacing-md); margin-top: 1.25rem; }
+    .calculator-result-message { font-size: 0.95rem; }
+    .site-footer { padding: 1.25rem var(--spacing-md); margin-top: var(--spacing-lg); }
+    .site-footer p { font-size: 0.9rem; }
+    .gallery-img { height: 250px; }
+    .calculator-link-container { margin-top: var(--spacing-xl); padding: var(--spacing-lg); }
+    .calculator-link { font-size: 1rem; }
+    .gallery-section { padding: var(--spacing-xl) var(--spacing-md); }
+    .gallery-grid { gap: var(--spacing-md); }
+    .contact-main { margin: var(--spacing-lg) auto; padding: var(--spacing-md); }
+    .contact-title { margin-bottom: 1.25rem; font-size: 1.5rem; }
+    .contact-container { padding: 1.25rem; }
+    .contact-section-title { font-size: 1.1rem; margin-bottom: var(--spacing-sm); }
+    .contact-text { margin-bottom: 0.75rem; font-size: 0.9rem; }
+    .contact-social { margin-bottom: 0.5rem; font-size: 0.9rem; }
 }
 
-/* Small mobile devices (max-width: 480px) */
-@media screen and (max-width: 480px) {
-    .site-header {
-        padding: 0.75rem;
-    }
-    
-    .logo {
-        font-size: 1.1rem;
-    }
-    
-    .hero {
-        padding: 2rem 0.75rem;
-    }
-    
-    .hero h1 {
-        font-size: 1.75rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero p {
-        font-size: 0.9rem;
-    }
-    
-    .Destinations {
-        padding: 1.25rem 0;
-        margin-bottom: 1rem;
-    }
-    
-    .Destinations h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.25rem;
-    }
-    
-    .cards {
-        gap: 1.25rem;
-        padding: 0.75rem;
-    }
-    
-    .card {
-        padding: 1rem;
-    }
-    
-    .card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .card p {
-        font-size: 0.9rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .btn {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-    }
-    
-    .calculator-main {
-        margin: 1rem auto;
-        padding: 0.75rem;
-    }
-    
-    .calculator-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .calculator-container {
-        padding: 1rem;
-    }
-    
-    .calculator-form-group {
-        margin-bottom: 1rem;
-    }
-    
-    .calculator-label {
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-    }
-    
+/* Responsive - Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    .site-header { padding: 0.75rem; }
+    .logo { font-size: 1.1rem; }
+    .hero { padding: var(--spacing-xl) 0.75rem; }
+    .hero h1 { font-size: 1.75rem; margin-bottom: var(--spacing-sm); }
+    .hero p { font-size: 0.9rem; }
+    .Destinations { padding: 1.25rem 0; margin-bottom: var(--spacing-md); }
+    .Destinations h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .cards { gap: 1.25rem; padding: 0.75rem; }
+    .card { padding: var(--spacing-md); }
+    .card h3 { font-size: 1.1rem; margin-bottom: var(--spacing-sm); }
+    .card p { font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .btn { padding: 8px 16px; font-size: 0.85rem; }
+    .calculator-main { margin: var(--spacing-md) auto; padding: 0.75rem; }
+    .calculator-title { font-size: 1.5rem; margin-bottom: var(--spacing-md); }
+    .calculator-container { padding: var(--spacing-md); }
+    .calculator-form-group { margin-bottom: var(--spacing-md); }
+    .calculator-label { font-size: 0.9rem; margin-bottom: var(--spacing-xs); }
     .calculator-select,
-    .calculator-input {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-    
-    .calculator-result {
-        padding: 0.75rem;
-        margin-top: 1rem;
-    }
-    
-    .calculator-result-message {
-        font-size: 0.9rem;
-    }
-    
-    .site-footer {
-        padding: 1rem 0.75rem;
-        margin-top: 1.25rem;
-    }
-    
-    .site-footer p {
-        font-size: 0.85rem;
-    }
-    
-    .gallery-img {
-        height: 200px;
-    }
-    
-    h1, h2, h3 {
-        font-size: 1.1em;
-    }
+    .calculator-input { padding: 8px; font-size: 0.9rem; }
+    .calculator-result { padding: 0.75rem; margin-top: var(--spacing-md); }
+    .calculator-result-message { font-size: 0.9rem; }
+    .site-footer { padding: var(--spacing-md) 0.75rem; margin-top: 1.25rem; }
+    .site-footer p { font-size: 0.85rem; }
+    .gallery-img { height: 200px; }
+    h1, h2, h3 { font-size: 1.1em; }
+    .calculator-link-container { margin-top: var(--spacing-lg); padding: var(--spacing-md); }
+    .calculator-link { font-size: 0.95rem; }
+    .gallery-section { padding: var(--spacing-lg) var(--spacing-sm); }
+    .contact-main { margin: var(--spacing-md) auto; padding: var(--spacing-sm); }
+    .contact-title { font-size: 1.35rem; margin-bottom: var(--spacing-md); }
+    .contact-container { padding: var(--spacing-md); }
+    .contact-section-title { font-size: 1rem; }
+    .contact-text { font-size: 0.85rem; }
+    .contact-social { font-size: 0.85rem; }
 }

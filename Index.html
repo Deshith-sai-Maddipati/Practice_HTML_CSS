@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Practice Project</title>
+        <title>Wander World</title>
         <link rel="stylesheet" href="Stylesheets.css">
         <script src = "Script.js" defer></script>
     </head>
@@ -11,6 +11,11 @@
         
         <header class="site-header">
             <div class="logo">WanderWorld</div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
@@ -33,8 +38,8 @@
                 <div class="cards" id="destinations-container">
                     <!-- Cards will be generated dynamically by JavaScript -->
                 </div>
-                <div style="text-align: center; margin-top: 3rem; padding: 2rem;">
-                    <a href="TripCalculator.html" style="color: #2C5F7C; font-size: 1.1rem; text-decoration: underline; font-weight: 600;">Try out our new feature Trip Calculator</a>
+                <div class="calculator-link-container">
+                    <a href="TripCalculator.html" class="calculator-link">Try out our new feature Trip Calculator</a>
                 </div>
             </section>
             
