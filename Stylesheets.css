@@ -22,7 +22,7 @@ img{
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     background-color: #1E3A5F;
     color:#FFFFFF;
 }
@@ -35,7 +35,7 @@ img{
 .nav-links{
     list-style: none;
     display: flex;
-    gap: 0.05rem;
+    gap: 0.25rem;
 }
 
 .nav-links a{
@@ -50,7 +50,7 @@ img{
 
 .hero{
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     background: linear-gradient(135deg, #2C5F7C 0%, #1A5F7A 100%);
     color: #FFFFFF;
 }
@@ -66,7 +66,7 @@ img{
 .cards{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 5rem;
+    gap: 2.5rem;
     padding: 2rem;
     
 }
@@ -80,7 +80,7 @@ img{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover{
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(30, 58, 95, 0.18);
 }
 .descriptions{
@@ -101,7 +101,7 @@ img{
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 2px 8px rgba(44, 95, 124, 0.3);
+    box-shadow: 0 4px 8px rgba(44, 95, 124, 0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -120,8 +120,8 @@ img{
 }
 .btn:hover{
     background-color: #1A5F7A;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(44, 95, 124, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(44, 95, 124, 0.4);
 }
 .btn:hover::before{
     width: 300px;
@@ -129,19 +129,19 @@ img{
 }
 .btn:active{
     transform: translateY(0) scale(0.98);
-    box-shadow: 0 2px 8px rgba(44, 95, 124, 0.3);
+    box-shadow: 0 4px 8px rgba(44, 95, 124, 0.3);
 }
 .btn:focus{
     outline: none;
-    box-shadow: 0 0 0 3px rgba(44, 95, 124, 0.3), 0 6px 20px rgba(44, 95, 124, 0.4);
+    box-shadow: 0 0 0 4px rgba(44, 95, 124, 0.3), 0 8px 20px rgba(44, 95, 124, 0.4);
 }
 
 .site-footer{
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: #1E3A5F;
     color: #FFFFFF;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .gallery-img{
@@ -155,8 +155,8 @@ img{
 /* Trip Calculator Styles */
 .calculator-main{
     max-width: 600px;
-    margin: 3rem auto;
-    padding: 2rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
 }
 
 .calculator-title{
@@ -167,7 +167,7 @@ img{
 
 .calculator-container{
     background-color: #FFFFFF;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(30, 58, 95, 0.12);
 }
@@ -213,4 +213,294 @@ img{
     font-weight: 600;
     text-align: center;
     margin: 0;
+}
+
+/* Contact Page Responsive Styles */
+main[style*="max-width: 800px"] {
+    transition: all 0.3s ease;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablet and below (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .hero {
+        padding: 3rem 1.5rem;
+    }
+    
+    .cards {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .calculator-main {
+        margin: 1.5rem auto;
+        padding: 1.25rem;
+    }
+    
+    .calculator-container {
+        padding: 1.25rem;
+    }
+    
+    /* Contact page responsive adjustments */
+    
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .site-header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 0.75rem 1rem;
+        text-align: left;
+    }
+    
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .Destinations {
+        padding: 1.5rem 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .Destinations h2 {
+        font-size: 1.75rem;
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1.25rem;
+    }
+    
+    .card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .calculator-main {
+        margin: 1.5rem auto;
+        padding: 1rem;
+    }
+    
+    .calculator-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .calculator-container {
+        padding: 1.25rem;
+    }
+    
+    .calculator-label {
+        font-size: 0.95rem;
+    }
+    
+    .calculator-select,
+    .calculator-input {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+    
+    .calculator-result {
+        padding: 1rem;
+        margin-top: 1.25rem;
+    }
+    
+    .calculator-result-message {
+        font-size: 0.95rem;
+    }
+    
+    .site-footer {
+        padding: 1.25rem 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .site-footer p {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-img {
+        height: 250px;
+    }
+    
+    /* Contact page mobile adjustments */
+    main[style*="max-width: 800px"] {
+        margin: 1.5rem auto !important;
+        padding: 1rem !important;
+    }
+    
+    main[style*="max-width: 800px"] h1 {
+        margin-bottom: 1.25rem !important;
+        font-size: 1.5rem;
+    }
+    
+    main[style*="max-width: 800px"] > div {
+        padding: 1.25rem !important;
+    }
+    
+    main[style*="max-width: 800px"] h2 {
+        margin-bottom: 0.5rem !important;
+        font-size: 1.1rem;
+    }
+    
+    main[style*="max-width: 800px"] p {
+        margin-bottom: 0.75rem !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .site-header {
+        padding: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .hero {
+        padding: 2rem 0.75rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+    }
+    
+    .Destinations {
+        padding: 1.25rem 0;
+        margin-bottom: 1rem;
+    }
+    
+    .Destinations h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .cards {
+        gap: 1.25rem;
+        padding: 0.75rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .calculator-main {
+        margin: 1rem auto;
+        padding: 0.75rem;
+    }
+    
+    .calculator-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .calculator-container {
+        padding: 1rem;
+    }
+    
+    .calculator-form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .calculator-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .calculator-select,
+    .calculator-input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .calculator-result {
+        padding: 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    .calculator-result-message {
+        font-size: 0.9rem;
+    }
+    
+    .site-footer {
+        padding: 1rem 0.75rem;
+        margin-top: 1.25rem;
+    }
+    
+    .site-footer p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-img {
+        height: 200px;
+    }
+    
+    h1, h2, h3 {
+        font-size: 1.1em;
+    }
 }
