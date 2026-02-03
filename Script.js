@@ -1,4 +1,5 @@
 // Destinations Data
+
 const destinations = [
     {
         name: "Hyderabad",
