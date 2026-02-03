@@ -34,6 +34,22 @@ const destinations = [
     }
 ];
 
+
+
+
+// Function to initialize Learn More button functionality
+function initializeLearnMoreButtons() {
+    const descriptive_buttons = document.querySelectorAll(".learn-more");
+    
+    descriptive_buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const description = button.nextElementSibling;
+            description.classList.toggle("show");
+            button.textContent = description.classList.contains("show") ? "Show Less" : "Learn More";
+        });
+    });
+}
+
 // Function to create destination cards dynamically
 function createDestinationCards() {
     const container = document.getElementById('destinations-container');
@@ -110,19 +126,9 @@ function createDestinationCards() {
     
     // Initialize Learn More button functionality after cards are created
     initializeLearnMoreButtons();
-}
-
-// Function to initialize Learn More button functionality
-function initializeLearnMoreButtons() {
-    const descriptive_buttons = document.querySelectorAll(".learn-more");
     
-    descriptive_buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            const description = button.nextElementSibling;
-            description.classList.toggle("show");
-            button.textContent = description.classList.contains("show") ? "Show Less" : "Learn More";
-        });
-    });
+    // Initialize search functionality after cards are created
+    initializeSearch();
 }
 
 // Initialize cards when DOM is loaded
@@ -131,6 +137,63 @@ if (document.readyState === 'loading') {
 } else {
     createDestinationCards();
 }
+
+
+//       ------------------------------------------------------------------------------------------------------------------------------------------
+
+// Function to filter destinations based on search query
+function filterDestinations(searchQuery) {
+    const cards = document.querySelectorAll('.card');
+    const query = searchQuery.toLowerCase().trim();
+    
+    
+    cards.forEach(card => {
+        const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const tagline = card.querySelector('p')?.textContent.toLowerCase() || '';
+        const description = card.querySelector('.descriptions')?.textContent.toLowerCase() || '';
+        
+        const matches = name.includes(query) || 
+                       tagline.includes(query) || 
+                       description.includes(query);
+        
+        // Add class to non-matching cards to change their background
+        if (matches) {
+            card.classList.remove('search-no-match');
+        } else {
+            card.classList.add('search-no-match');
+        }
+    });
+}
+
+// debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func(...args);
+        }, wait);
+    };
+}
+
+// Function to initialize search functionality
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        // Debounce the filter function with 300ms delay
+        const debouncedFilter = debounce((value) => {
+            filterDestinations(value);
+        }, 300);
+        
+        searchInput.addEventListener('input', (e) => {
+            debouncedFilter(e.target.value);
+        });
+    }
+}
+
+
+
+//       ------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // Dynamic Footer time
@@ -147,6 +210,9 @@ if (footerTime) {
     updateFooterTime();
     
 }
+
+
+//       ------------------------------------------------------------------------------------------------------------------------------------------
 
 // Trip Calculator Functionality
 const tripCalculatorForm = document.getElementById('tripCalculatorForm');
